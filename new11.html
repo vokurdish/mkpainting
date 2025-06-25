@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MK Painting & Repair | Premium Home Services</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<style>
+:root {
+--gold: #e0a94e;
+--gold-light: #f5d392;
+--dark: #121212;
+--light: #f8f8f8;
+--card-bg: rgba(30, 30, 30, 0.9);
+--shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+--transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[data-theme="light"] {
+--dark: #f8f8f8;
+--light: #121212;
+--card-bg: rgba(248, 248, 248, 0.95);
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+transition: var(--transition);
+}
+
+body {
+font-family: 'Montserrat', sans-serif;
+color: var(--light);
+min-height: 100vh;
+overflow-x: hidden;
+line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+font-family: 'Playfair Display', serif;
+font-weight: 700;
+}
+
+/* Luxury Background */
+.luxury-background {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100vh;
+z-index: -1;
+background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+}
+
+.bg-slide {
+position: absolute;
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0;
+transition: opacity 1.5s ease;
+}
+
+.bg-slide.active {
+opacity: 1;
+}
+
+/* Header */
+header {
+padding: 1.5rem 5%;
+position: fixed;
+width: 100%;
+z-index: 100;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: rgba(18, 18, 18, 0.8);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid var(--gold);
+}
+
+.logo-container {
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+
+.logo-img {
+height: 60px;
+filter: brightness(0) invert(1);
+}
+
+[data-theme="light"] .logo-img {
+filter: brightness(0);
+}
+
+.logo-text {
+font-family: 'Playfair Display', serif;
+font-size: 1.8rem;
+font-weight: 700;
+color: var(--light);
+}
+
+.logo-text span {
+color: var(--gold);
+}
+
+/* Navigation */
+.nav-links {
+display: flex;
+gap: 2.5rem;
+}
+
+.nav-link {
+color: var(--light);
+text-decoration: none;
+font-weight: 500;
+letter-spacing: 1px;
+position: relative;
+font-size: 1.1rem;
+}
+
+.nav-link:after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -5px;
+left: 0;
+background: var(--gold);
+transition: width 0.3s;
+}
+
+.nav-link:hover:after {
+width: 100%;
+}
+
+/* Buttons - NEW IMPROVED STYLES */
+.btn-gold {
+background: linear-gradient(135deg, var(--gold), var(--gold-light));
+color: var(--dark);
+border: none;
+padding: 1rem 2.5rem;
+font-size: 1.1rem;
+font-weight: 600;
+border-radius: 50px;
+cursor: pointer;
+box-shadow: 0 4px 15px rgba(224, 169, 78, 0.3);
+position: relative;
+overflow: hidden;
+z-index: 1;
+transition: var(--transition);
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
+}
+
+.btn-gold:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 25px rgba(224, 169, 78, 0.4);
+}
+
+.btn-gold:active {
+transform: translateY(1px);
+}
+
+.btn-gold:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, var(--gold-light), var(--gold));
+opacity: 0;
+z-index: -1;
+transition: var(--transition);
+}
+
+.btn-gold:hover:before {
+opacity: 1;
+}
+
+.btn-outline {
+background: transparent;
+color: var(--gold);
+border: 2px solid var(--gold);
+padding: 0.8rem 2rem;
+font-size: 1rem;
+font-weight: 600;
+border-radius: 50px;
+cursor: pointer;
+transition: var(--transition);
+margin-top: 1rem;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
+}
+
+.btn-outline:hover {
+background: var(--gold);
+color: var(--dark);
+transform: translateY(-3px);
+box-shadow: 0 8px 25px rgba(224, 169, 78, 0.3);
+}
+
+/* Hero Section */
+.hero {
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 0 5%;
+}
+
+.hero h1 {
+font-size: 4.5rem;
+margin-bottom: 1.5rem;
+background: linear-gradient(45deg, var(--gold), var(--gold-light));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+line-height: 1.2;
+}
+
+.hero p {
+font-size: 1.5rem;
+max-width: 800px;
+margin-bottom: 3rem;
+opacity: 0.9;
+}
+
+/* Services */
+.services-section {
+padding: 8rem 5%;
+background: var(--card-bg);
+backdrop-filter: blur(10px);
+}
+
+.services-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 3rem;
+margin-top: 4rem;
+}
+
+.service-card {
+background: var(--card-bg);
+padding: 2.5rem;
+border-radius: 10px;
+border: 1px solid rgba(224, 169, 78, 0.2);
+box-shadow: var(--shadow);
+cursor: pointer;
+transition: var(--transition);
+}
+
+.service-card:hover {
+transform: translateY(-10px);
+border-color: var(--gold);
+}
+
+.service-icon {
+font-size: 3rem;
+color: var(--gold);
+margin-bottom: 1.5rem;
+}
+
+.service-title {
+font-size: 1.8rem;
+margin-bottom: 1rem;
+color: var(--gold);
+}
+
+/* Service Modals */
+.service-modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.9);
+z-index: 1000;
+overflow-y: auto;
+padding: 2rem;
+}
+
+.modal-content {
+background: var(--card-bg);
+max-width: 1000px;
+margin: 3rem auto;
+padding: 3rem;
+border-radius: 10px;
+border: 1px solid var(--gold);
+position: relative;
+}
+
+.close-modal {
+position: absolute;
+top: 1.5rem;
+right: 1.5rem;
+font-size: 2rem;
+cursor: pointer;
+color: var(--light);
+transition: var(--transition);
+}
+
+.close-modal:hover {
+color: var(--gold);
+transform: rotate(90deg);
+}
+
+.service-gallery {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 1.5rem;
+margin: 3rem 0;
+}
+
+.gallery-item {
+height: 250px;
+border-radius: 8px;
+overflow: hidden;
+position: relative;
+}
+
+.gallery-item img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+transform: scale(1.1);
+}
+
+/* Reviews Section - IMPROVED */
+.reviews-section {
+padding: 8rem 5%;
+background: rgba(18, 18, 18, 0.7);
+backdrop-filter: blur(10px);
+}
+
+.reviews-container {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 2rem;
+margin-top: 3rem;
+}
+
+.review-card {
+background: var(--card-bg);
+padding: 2rem;
+border-radius: 10px;
+border: 1px solid rgba(224, 169, 78, 0.2);
+box-shadow: var(--shadow);
+transition: var(--transition);
+}
+
+.review-card:hover {
+transform: translateY(-5px);
+border-color: var(--gold);
+}
+
+.review-header {
+display: flex;
+align-items: center;
+margin-bottom: 1.5rem;
+}
+
+.review-avatar {
+width: 60px;
+height: 60px;
+border-radius: 50%;
+background: var(--gold);
+display: flex;
+align-items: center;
+justify-content: center;
+margin-right: 1.5rem;
+color: var(--dark);
+font-weight: bold;
+font-size: 1.5rem;
+flex-shrink: 0;
+}
+
+.review-stars {
+color: var(--gold);
+margin-bottom: 0.5rem;
+letter-spacing: 3px;
+}
+
+.review-date {
+font-size: 0.9rem;
+opacity: 0.7;
+}
+
+/* Review Form - IMPROVED */
+.review-form {
+background: var(--card-bg);
+padding: 3rem;
+border-radius: 10px;
+margin-top: 4rem;
+border: 1px solid rgba(224, 169, 78, 0.2);
+box-shadow: var(--shadow);
+}
+
+.form-group {
+margin-bottom: 1.5rem;
+}
+
+.form-label {
+display: block;
+margin-bottom: 0.5rem;
+font-weight: 500;
+}
+
+.form-input {
+width: 100%;
+padding: 1rem;
+background: rgba(255,255,255,0.1);
+border: 1px solid rgba(224, 169, 78, 0.3);
+border-radius: 6px;
+color: var(--light);
+font-size: 1rem;
+transition: var(--transition);
+}
+
+.form-input:focus {
+outline: none;
+border-color: var(--gold);
+box-shadow: 0 0 0 2px rgba(224, 169, 78, 0.2);
+}
+
+textarea.form-input {
+min-height: 150px;
+resize: vertical;
+}
+
+.star-rating {
+display: flex;
+gap: 0.5rem;
+margin-bottom: 1.5rem;
+}
+
+.star-rating i {
+font-size: 1.8rem;
+color: #ccc;
+cursor: pointer;
+transition: var(--transition);
+}
+
+.star-rating i.active {
+color: var(--gold);
+transform: scale(1.1);
+}
+
+/* Chat System */
+.chat-toggle {
+position: fixed;
+bottom: 30px;
+right: 30px;
+width: 70px;
+height: 70px;
+background: var(--gold);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+z-index: 90;
+box-shadow: var(--shadow);
+transition: var(--transition);
+}
+
+.chat-toggle:hover {
+transform: scale(1.1);
+}
+
+.chat-container {
+position: fixed;
+bottom: 120px;
+right: 30px;
+width: 400px;
+background: var(--card-bg);
+border-radius: 15px;
+border: 1px solid var(--gold);
+box-shadow: var(--shadow);
+z-index: 100;
+display: none;
+overflow: hidden;
+}
+
+.chat-header {
+padding: 1.5rem;
+background: rgba(224, 169, 78, 0.2);
+border-bottom: 1px solid var(--gold);
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.chat-body {
+height: 400px;
+overflow-y: auto;
+padding: 1.5rem;
+}
+
+.message {
+margin-bottom: 1.5rem;
+max-width: 80%;
+transition: var(--transition);
+}
+
+.user-message {
+margin-left: auto;
+background: rgba(224, 169, 78, 0.3);
+padding: 1rem 1.5rem;
+border-radius: 15px 15px 0 15px;
+}
+
+.admin-message {
+margin-right: auto;
+background: rgba(255, 255, 255, 0.1);
+padding: 1rem 1.5rem;
+border-radius: 15px 15px 15px 0;
+}
+
+.chat-input {
+display: flex;
+padding: 1rem;
+border-top: 1px solid rgba(224, 169, 78, 0.2);
+}
+
+.chat-input input {
+flex: 1;
+padding: 1rem;
+background: rgba(255,255,255,0.1);
+border: 1px solid rgba(224, 169, 78, 0.3);
+border-radius: 30px;
+color: var(--light);
+font-size: 1rem;
+}
+
+.chat-input button {
+background: var(--gold);
+color: var(--dark);
+border: none;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+margin-left: 1rem;
+cursor: pointer;
+transition: var(--transition);
+}
+
+.chat-input button:hover {
+transform: scale(1.1);
+}
+
+/* Admin Panel - COMPLETELY REDESIGNED */
+.admin-panel {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 90%;
+max-width: 800px;
+background: var(--card-bg);
+border-radius: 15px;
+border: 1px solid var(--gold);
+box-shadow: var(--shadow);
+z-index: 1000;
+padding: 2.5rem;
+display: none;
+max-height: 90vh;
+overflow-y: auto;
+}
+
+.admin-dashboard {
+display: none;
+}
+
+.admin-form {
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+}
+
+.admin-form input {
+padding: 1rem;
+background: rgba(255,255,255,0.1);
+border: 1px solid rgba(224, 169, 78, 0.3);
+border-radius: 6px;
+color: var(--light);
+font-size: 1rem;
+}
+
+.admin-form button {
+background: var(--gold);
+color: var(--dark);
+border: none;
+padding: 1rem;
+border-radius: 6px;
+cursor: pointer;
+font-weight: bold;
+transition: var(--transition);
+}
+
+.admin-form button:hover {
+opacity: 0.9;
+transform: translateY(-2px);
+}
+
+.admin-tabs {
+display: flex;
+gap: 1rem;
+margin-bottom: 2rem;
+border-bottom: 1px solid rgba(224, 169, 78, 0.3);
+padding-bottom: 1rem;
+}
+
+.admin-tab {
+padding: 0.5rem 1.5rem;
+background: transparent;
+border: none;
+color: var(--light);
+cursor: pointer;
+border-radius: 5px;
+transition: var(--transition);
+font-weight: 500;
+}
+
+.admin-tab.active {
+background: rgba(224, 169, 78, 0.2);
+color: var(--gold);
+}
+
+.admin-tab:hover:not(.active) {
+background: rgba(255, 255, 255, 0.1);
+}
+
+.admin-content {
+display: none;
+}
+
+.admin-content.active {
+display: block;
+}
+
+.upload-area {
+border: 2px dashed rgba(224, 169, 78, 0.5);
+border-radius: 10px;
+padding: 2rem;
+text-align: center;
+margin-bottom: 2rem;
+cursor: pointer;
+transition: var(--transition);
+}
+
+.upload-area:hover {
+border-color: var(--gold);
+background: rgba(224, 169, 78, 0.05);
+}
+
+.upload-area i {
+font-size: 3rem;
+color: var(--gold);
+margin-bottom: 1rem;
+}
+
+.upload-area p {
+margin-bottom: 1rem;
+}
+
+.upload-preview {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+gap: 1rem;
+margin-top: 1rem;
+}
+
+.upload-preview img {
+width: 100%;
+height: 120px;
+object-fit: cover;
+border-radius: 5px;
+border: 1px solid rgba(224, 169, 78, 0.3);
+}
+
+.admin-gallery {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+gap: 1rem;
+margin-top: 2rem;
+}
+
+.admin-gallery-item {
+position: relative;
+border-radius: 5px;
+overflow: hidden;
+border: 1px solid rgba(224, 169, 78, 0.3);
+}
+
+.admin-gallery-item img {
+width: 100%;
+height: 150px;
+object-fit: cover;
+display: block;
+}
+
+.admin-gallery-controls {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+background: rgba(0, 0, 0, 0.7);
+padding: 0.5rem;
+display: flex;
+justify-content: center;
+gap: 0.5rem;
+}
+
+.admin-gallery-controls button {
+background: var(--gold);
+color: var(--dark);
+border: none;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: var(--transition);
+}
+
+.admin-gallery-controls button:hover {
+transform: scale(1.1);
+}
+
+.review-list {
+margin-top: 2rem;
+}
+
+.review-item {
+background: rgba(255, 255, 255, 0.05);
+padding: 1.5rem;
+border-radius: 8px;
+margin-bottom: 1rem;
+border: 1px solid rgba(224, 169, 78, 0.2);
+}
+
+.review-item-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 1rem;
+}
+
+.review-item-actions {
+display: flex;
+gap: 0.5rem;
+}
+
+.review-item-actions button {
+background: rgba(224, 169, 78, 0.2);
+border: none;
+color: var(--light);
+width: 30px;
+height: 30px;
+border-radius: 50%;
+cursor: pointer;
+transition: var(--transition);
+}
+
+.review-item-actions button:hover {
+background: var(--gold);
+color: var(--dark);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+position: fixed;
+bottom: 30px;
+left: 30px;
+width: 60px;
+height: 60px;
+background: var(--gold);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+z-index: 90;
+box-shadow: var(--shadow);
+transition: var(--transition);
+}
+
+.theme-toggle:hover {
+transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+.hero h1 {
+font-size: 3.5rem;
+}
+.services-grid {
+grid-template-columns: 1fr 1fr;
+}
+.chat-container {
+width: 350px;
+}
+}
+
+@media (max-width: 768px) {
+header {
+padding: 1rem;
+}
+.nav-links {
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+width: 100%;
+background: rgba(18, 18, 18, 0.95);
+flex-direction: column;
+padding: 1.5rem;
+gap: 1.5rem;
+}
+.nav-links.active {
+display: flex;
+}
+.nav-toggle {
+display: block;
+background: none;
+border: none;
+color: var(--light);
+font-size: 1.5rem;
+cursor: pointer;
+}
+.hero h1 {
+font-size: 2.8rem;
+}
+.hero p {
+font-size: 1.2rem;
+}
+.services-grid {
+grid-template-columns: 1fr;
+}
+.service-modal .modal-content {
+padding: 2rem 1.5rem;
+}
+.chat-container {
+width: calc(100% - 40px);
+right: 20px;
+bottom: 100px;
+}
+.admin-panel {
+width: calc(100% - 40px);
+padding: 1.5rem;
+}
+}
+
+@media (max-width: 480px) {
+.hero h1 {
+font-size: 2.2rem;
+}
+.logo-text {
+font-size: 1.5rem;
+}
+.service-gallery {
+grid-template-columns: 1fr;
+}
+.gallery-item {
+height: 200px;
+}
+
+.btn-gold, .btn-outline {
+padding: 0.8rem 1.8rem;
+font-size: 1rem;
+}
+}
+</style>
+</head>
+<body>
+<!-- Luxury Background Slideshow -->
+<div class="luxury-background">
+<img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115" class="bg-slide active" alt="Luxury Home">
+<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d" class="bg-slide" alt="Interior Design">
+<img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa" class="bg-slide" alt="Security Camera">
+</div>
+
+<!-- Header -->
+<header>
+<div class="logo-container">
+<img src="your-logo.png" alt="MK Logo" class="logo-img">
+<div class="logo-text">MK <span>Painting & Repair</span></div>
+</div>
+<button class="nav-toggle" onclick="toggleNav()">
+<i class="fas fa-bars"></i>
+</button>
+<nav class="nav-links">
+<a href="#services" class="nav-link">Services</a>
+<a href="#reviews" class="nav-link">Reviews</a>
+<a href="#contact" class="nav-link">Contact</a>
+<a href="#" class="nav-link" onclick="showAdminPanel()">Admin</a>
+</nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+<h1>Premium Home Services in London</h1>
+<p>Experience unparalleled craftsmanship in painting, repairs, and security solutions</p>
+<button class="btn-gold" onclick="scrollToSection('services')">
+Explore Services <i class="fas fa-chevron-right"></i>
+</button>
+</section>
+
+<!-- Services Section -->
+<section class="services-section" id="services">
+<h2>Our Luxury Services</h2>
+<p>Delivering excellence in every detail for your home</p>
+<div class="services-grid">
+<!-- Painting Service -->
+<div class="service-card" onclick="openServiceModal('painting')">
+<div class="service-icon">
+<i class="fas fa-paint-roller"></i>
+</div>
+<h3 class="service-title">Luxury Painting</h3>
+<p>Premium painting services using the finest materials and techniques</p>
+<button class="btn-outline">
+Learn More <i class="fas fa-arrow-right"></i>
+</button>
+</div>
+<!-- Repair Service -->
+<div class="service-card" onclick="openServiceModal('repair')">
+<div class="service-icon">
+<i class="fas fa-tools"></i>
+</div>
+<h3 class="service-title">Home Repairs</h3>
+<p>Expert craftsmanship for all your home maintenance needs</p>
+<button class="btn-outline">
+Learn More <i class="fas fa-arrow-right"></i>
+</button>
+</div>
+<!-- CCTV Service -->
+<div class="service-card" onclick="openServiceModal('cctv')">
+<div class="service-icon">
+<i class="fas fa-video"></i>
+</div>
+<h3 class="service-title">CCTV Installation</h3>
+<p>State-of-the-art security solutions for your peace of mind</p>
+<button class="btn-outline">
+Learn More <i class="fas fa-arrow-right"></i>
+</button>
+</div>
+</div>
+</section>
+
+<!-- Painting Service Modal -->
+<div id="paintingModal" class="service-modal">
+<div class="modal-content">
+<span class="close-modal" onclick="closeModal('painting')">&times;</span>
+<h2>Luxury Painting Services</h2>
+<p>We transform homes with premium painting services using only the highest quality materials and techniques.</p>
+<div class="service-gallery">
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115" alt="House Painting">
+</div>
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d" alt="Interior Painting">
+</div>
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea" alt="Detailed Painting">
+</div>
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87" alt="Wall Preparation">
+</div>
+</div>
+<button class="btn-gold" onclick="location.href='#contact'">
+Request Consultation <i class="fas fa-chevron-right"></i>
+</button>
+</div>
+</div>
+
+<!-- Repair Service Modal -->
+<div id="repairModal" class="service-modal">
+<div class="modal-content">
+<span class="close-modal" onclick="closeModal('repair')">&times;</span>
+<h2>Home Repair Services</h2>
+<p>Comprehensive repair solutions for every aspect of your home.</p>
+<div class="service-gallery">
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1600046050370-4e64d1e7160e" alt="Carpentry Work">
+</div>
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf" alt="Electrical Repair">
+</div>
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1600210492493-0946911123ea" alt="Plumbing Repair">
+</div>
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1600580073636-0395675175c8" alt="Structural Repair">
+</div>
+</div>
+<button class="btn-gold" onclick="location.href='#contact'">
+Request Consultation <i class="fas fa-chevron-right"></i>
+</button>
+</div>
+</div>
+
+<!-- CCTV Service Modal -->
+<div id="cctvModal" class="service-modal">
+<div class="modal-content">
+<span class="close-modal" onclick="closeModal('cctv')">&times;</span>
+<h2>CCTV Installation</h2>
+<p>Professional security solutions tailored to your property's needs.</p>
+<div class="service-gallery">
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa" alt="Camera Installation">
+</div>
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1581093196277-1c6a7a5d1a3a" alt="Security System">
+</div>
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9" alt="Camera Setup">
+</div>
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12" alt="Monitoring Setup">
+</div>
+</div>
+<button class="btn-gold" onclick="location.href='#contact'">
+Request Consultation <i class="fas fa-chevron-right"></i>
+</button>
+</div>
+</div>
+
+<!-- Reviews Section -->
+<section class="reviews-section" id="reviews">
+<h2>Client Testimonials</h2>
+<p>What our valued clients say about our services</p>
+<div class="reviews-container" id="reviewsContainer">
+<!-- Reviews will be loaded here from database in real implementation -->
+<div class="review-card">
+<div class="review-header">
+<div class="review-avatar">JD</div>
+<div>
+<div class="review-stars">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+</div>
+<h4>John D.</h4>
+<div class="review-date">15 March 2023</div>
+</div>
+</div>
+<p>"The painting team transformed our home with incredible attention to detail. The finishes are flawless and exactly what we envisioned."</p>
+</div>
+<div class="review-card">
+<div class="review-header">
+<div class="review-avatar">SM</div>
+<div>
+<div class="review-stars">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+</div>
+<h4>Sarah M.</h4>
+<div class="review-date">2 April 2023</div>
+</div>
+</div>
+<p>"Our CCTV system was installed perfectly and blends seamlessly with our home's design. The team was professional and knowledgeable."</p>
+</div>
+<div class="review-card">
+<div class="review-header">
+<div class="review-avatar">TW</div>
+<div>
+<div class="review-stars">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star-half-alt"></i>
+</div>
+<h4>Thomas W.</h4>
+<div class="review-date">22 May 2023</div>
+</div>
+</div>
+<p>"The repair work on our Victorian home was exceptional. They preserved the original features while making everything structurally sound."</p>
+</div>
+</div>
+<!-- Review Form -->
+<div class="review-form">
+<h3>Leave Your Review</h3>
+<form id="reviewForm">
+<div class="form-group">
+<label for="reviewName" class="form-label">Full Name</label>
+<input type="text" id="reviewName" class="form-input" required>
+</div>
+<div class="form-group">
+<label class="form-label">Rating</label>
+<div class="star-rating" id="starRating">
+<i class="fas fa-star" data-rating="1"></i>
+<i class="fas fa-star" data-rating="2"></i>
+<i class="fas fa-star" data-rating="3"></i>
+<i class="fas fa-star" data-rating="4"></i>
+<i class="fas fa-star" data-rating="5"></i>
+</div>
+</div>
+<div class="form-group">
+<label for="reviewText" class="form-label">Your Review</label>
+<textarea id="reviewText" class="form-input" rows="5" required></textarea>
+</div>
+<button type="submit" class="btn-gold">
+Submit Review <i class="fas fa-paper-plane"></i>
+</button>
+</form>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section class="services-section" id="contact">
+<h2>Contact Us</h2>
+<p>Get in touch for a personalized consultation</p>
+<div class="services-grid">
+<div class="service-card">
+<div class="service-icon">
+<i class="fas fa-phone-alt"></i>
+</div>
+<h3 class="service-title">Call Us</h3>
+<p>+44 20 1234 5678</p>
+<button class="btn-outline" onclick="window.location.href='tel:+442012345678'">
+Call Now <i class="fas fa-phone"></i>
+</button>
+</div>
+<div class="service-card">
+<div class="service-icon">
+<i class="fas fa-envelope"></i>
+</div>
+<h3 class="service-title">Email Us</h3>
+<p>contact@mkpaintingrepair.com</p>
+<button class="btn-outline" onclick="window.location.href='mailto:contact@mkpaintingrepair.com'">
+Send Email <i class="fas fa-envelope"></i>
+</button>
+</div>
+<div class="service-card">
+<div class="service-icon">
+<i class="fas fa-map-marker-alt"></i>
+</div>
+<h3 class="service-title">Visit Us</h3>
+<p>London, UK</p>
+<button class="btn-outline" onclick="window.open('https://maps.google.com?q=London')">
+View on Map <i class="fas fa-map-marked-alt"></i>
+</button>
+</div>
+</div>
+</section>
+
+<!-- Chat System -->
+<div class="chat-toggle" onclick="toggleChat()">
+<i class="fas fa-comments"></i>
+</div>
+
+<div class="chat-container" id="chatContainer">
+<div class="chat-header">
+<h3>Customer Support</h3>
+<i class="fas fa-times" onclick="toggleChat()"></i>
+</div>
+<div class="chat-body" id="chatBody">
+<div class="message admin-message">
+Hello! How can we assist you today?
+</div>
+</div>
+<div class="chat-input">
+<input type="text" id="chatMessage" placeholder="Type your message...">
+<button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+</div>
+</div>
+
+<!-- Admin Panel - COMPLETELY REDESIGNED -->
+<div class="admin-panel" id="adminPanel">
+<div id="adminLogin">
+<h2>Admin Dashboard</h2>
+<p>Please login to access the admin controls</p>
+<div class="admin-form">
+<input type="text" id="adminUsername" placeholder="Username">
+<input type="password" id="adminPassword" placeholder="Password">
+<button onclick="adminLogin()">Login</button>
+</div>
+</div>
+<div class="admin-dashboard" id="adminDashboard">
+<h2>Admin Dashboard</h2>
+<div class="admin-tabs">
+<button class="admin-tab active" onclick="openAdminTab('gallery')">Gallery</button>
+<button class="admin-tab" onclick="openAdminTab('reviews')">Reviews</button>
+<button class="admin-tab" onclick="openAdminTab('settings')">Settings</button>
+</div>
+<!-- Gallery Management -->
+<div class="admin-content active" id="galleryTab">
+<h3>Upload New Images</h3>
+<div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+<i class="fas fa-cloud-upload-alt"></i>
+<p>Click to upload images or drag and drop</p>
+<small>Supports JPG, PNG (Max 5MB each)</small>
+<input type="file" id="fileInput" multiple style="display: none;" onchange="handleFileUpload()">
+</div>
+<div class="upload-preview" id="uploadPreview"></div>
+<button class="btn-gold" onclick="uploadFiles()" style="margin-top: 1rem;">
+Upload Selected <i class="fas fa-upload"></i>
+</button>
+<h3 style="margin-top: 3rem;">Current Gallery</h3>
+<div class="admin-gallery" id="adminGallery">
+<!-- Gallery items will be populated here -->
+</div>
+</div>
+<!-- Reviews Management -->
+<div class="admin-content" id="reviewsTab">
+<h3>Manage Customer Reviews</h3>
+<div class="review-list" id="reviewList">
+<!-- Reviews will be loaded here -->
+</div>
+</div>
+<!-- Settings -->
+<div class="admin-content" id="settingsTab">
+<h3>Admin Settings</h3>
+<div class="admin-form">
+<label class="form-label">Change Password</label>
+<input type="password" id="currentPassword" placeholder="Current Password">
+<input type="password" id="newPassword" placeholder="New Password">
+<input type="password" id="confirmPassword" placeholder="Confirm Password">
+<button onclick="changePassword()">Update Password</button>
+</div>
+</div>
+<button class="btn-outline" onclick="adminLogout()" style="margin-top: 2rem;">
+Logout <i class="fas fa-sign-out-alt"></i>
+</button>
+</div>
+</div>
+
+<!-- Theme Toggle -->
+<div class="theme-toggle" onclick="toggleTheme()">
+<i class="fas fa-moon"></i>
+</div>
+
+<script>
+// Background Slideshow
+let currentBgSlide = 0;
+const bgSlides = document.querySelectorAll('.bg-slide');
+function changeBackground() {
+bgSlides[currentBgSlide].classList.remove('active');
+currentBgSlide = (currentBgSlide + 1) % bgSlides.length;
+bgSlides[currentBgSlide].classList.add('active');
+}
+setInterval(changeBackground, 6000);
+
+// Navigation Toggle
+function toggleNav() {
+const nav = document.querySelector('.nav-links');
+nav.classList.toggle('active');
+}
+
+// Theme Toggle
+function toggleTheme() {
+const current = document.documentElement.getAttribute('data-theme');
+const newTheme = current === 'dark' ? 'light' : 'dark';
+document.documentElement.setAttribute('data-theme', newTheme);
+localStorage.setItem('theme', newTheme);
+// Update theme icon
+const icon = document.querySelector('.theme-toggle i');
+icon.className = newTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+}
+
+// Set initial theme
+const savedTheme = localStorage.getItem('theme') || 'dark';
+document.documentElement.setAttribute('data-theme', savedTheme);
+// Set correct theme icon
+const themeIcon = document.querySelector('.theme-toggle i');
+themeIcon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+
+// Service Modals
+function openServiceModal(service) {
+document.getElementById(`${service}Modal`).style.display = 'block';
+document.body.style.overflow = 'hidden';
+}
+
+function closeModal(service) {
+document.getElementById(`${service}Modal`).style.display = 'none';
+document.body.style.overflow = 'auto';
+}
+
+// Star Rating
+const stars = document.querySelectorAll('.star-rating i');
+let selectedRating = 0;
+stars.forEach(star => {
+star.addEventListener('click', function() {
+selectedRating = parseInt(this.getAttribute('data-rating'));
+stars.forEach((s, index) => {
+if (index < selectedRating) {
+s.classList.add('active');
+} else {
+s.classList.remove('active');
+}
+});
+});
+star.addEventListener('mouseover', function() {
+const rating = parseInt(this.getAttribute('data-rating'));
+stars.forEach((s, index) => {
+if (index < rating) {
+s.style.color = 'var(--gold)';
+s.style.transform = 'scale(1.1)';
+}
+});
+});
+star.addEventListener('mouseout', function() {
+stars.forEach((s, index) => {
+if (index >= selectedRating) {
+s.style.color = index < selectedRating ? 'var(--gold)' : '#ccc';
+s.style.transform = index < selectedRating ? 'scale(1.1)' : 'scale(1)';
+}
+});
+});
+});
+
+// Chat System
+function toggleChat() {
+const chat = document.getElementById('chatContainer');
+chat.style.display = chat.style.display === 'none' ? 'block' : 'none';
+}
+
+function sendMessage() {
+const input = document.getElementById('chatMessage');
+const message = input.value.trim();
+if (message) {
+addMessage(message, 'user-message');
+input.value = '';
+// Simulate admin response
+setTimeout(() => {
+addMessage("Thank you for your message. Our team will respond shortly.", 'admin-message');
+}, 1500);
+}
+}
+
+function addMessage(text, className) {
+const chatBody = document.getElementById('chatBody');
+const messageDiv = document.createElement('div');
+messageDiv.className = `message ${className}`;
+messageDiv.textContent = text;
+chatBody.appendChild(messageDiv);
+chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// Admin Panel - NEW FUNCTIONALITY
+let uploadedFiles = [];
+function showAdminPanel() {
+document.getElementById('adminPanel').style.display = 'block';
+}
+function openAdminTab(tabName) {
+// Hide all tabs
+document.querySelectorAll('.admin-content').forEach(tab => {
+tab.classList.remove('active');
+});
+// Deactivate all tab buttons
+document.querySelectorAll('.admin-tab').forEach(button => {
+button.classList.remove('active');
+});
+// Activate selected tab
+document.getElementById(`${tabName}Tab`).classList.add('active');
+// Activate selected button
+event.target.classList.add('active');
+}
+function handleFileUpload() {
+const files = document.getElementById('fileInput').files;
+const preview = document.getElementById('uploadPreview');
+preview.innerHTML = '';
+uploadedFiles = [];
+if (files.length > 0) {
+for (let i = 0; i < files.length; i++) {
+const file = files[i];
+if (file.type.match('image.*')) {
+uploadedFiles.push(file);
+const reader = new FileReader();
+reader.onload = function(e) {
+const previewItem = document.createElement('div');
+previewItem.innerHTML = `
+<img src="${e.target.result}" alt="${file.name}" style="width:100%; border-radius:5px;">
+<small>${file.name}</small>
+`;
+preview.appendChild(previewItem);
+}
+reader.readAsDataURL(file);
+}
+}
+}
+}
+function uploadFiles() {
+if (uploadedFiles.length === 0) {
+alert('Please select files to upload first');
+return;
+}
+// In a real implementation, this would upload to a server
+alert(`${uploadedFiles.length} files ready for upload (would connect to server in real implementation)`);
+// Simulate successful upload
+setTimeout(() => {
+alert('Files uploaded successfully!');
+document.getElementById('uploadPreview').innerHTML = '';
+uploadedFiles = [];
+// Refresh gallery (in real implementation would fetch from server)
+loadGallery();
+}, 1000);
+}
+function loadGallery() {
+const gallery = document.getElementById('adminGallery');
+gallery.innerHTML = '';
+// In a real implementation, this would fetch from a database
+const sampleImages = [
+{ id: 1, url: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115', category: 'painting' },
+{ id: 2, url: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d', category: 'painting' },
+{ id: 3, url: 'https://images.unsplash.com/photo-1600046050370-4e64d1e7160e', category: 'repair' },
+{ id: 4, url: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf', category: 'repair' },
+{ id: 5, url: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa', category: 'cctv' },
+{ id: 6, url: 'https://images.unsplash.com/photo-1581093196277-1c6a7a5d1a3a', category: 'cctv' }
+];
+sampleImages.forEach(image => {
+const item = document.createElement('div');
+item.className = 'admin-gallery-item';
+item.innerHTML = `
+<img src="${image.url}" alt="Gallery Image">
+<div class="admin-gallery-controls">
+<button onclick="editImage(${image.id})"><i class="fas fa-edit"></i></button>
+<button onclick="deleteImage(${image.id})"><i class="fas fa-trash"></i></button>
+</div>
+`;
+gallery.appendChild(item);
+});
+}
+function editImage(id) {
+// In real implementation would open an edit dialog
+alert(`Would edit image ID: ${id} (real implementation would connect to server)`);
+}
+function deleteImage(id) {
+if (confirm('Are you sure you want to delete this image?')) {
+// In real implementation would delete from server
+alert(`Image ID: ${id} deleted (would connect to server in real implementation)`);
+loadGallery(); // Refresh
+}
+}
+function loadReviews() {
+const reviewList = document.getElementById('reviewList');
+reviewList.innerHTML = '';
+// In a real implementation, this would fetch from a database
+const sampleReviews = [
+{
+id: 1,
+name: 'John D.',
+rating: 5,
+date: '15 March 2023',
+text: 'The painting team transformed our home with incredible attention to detail.'
+},
+{
+id: 2,
+name: 'Sarah M.',
+rating: 4,
+date: '2 April 2023',
+text: 'Our CCTV system was installed perfectly and blends seamlessly with our home.'
+},
+{
+id: 3,
+name: 'Thomas W.',
+rating: 5,
+date: '22 May 2023',
+text: 'The repair work on our Victorian home was exceptional.'
+}
+];
+sampleReviews.forEach(review => {
+const stars = Array(review.rating).fill('<i class="fas fa-star"></i>').join('');
+const item = document.createElement('div');
+item.className = 'review-item';
+item.innerHTML = `
+<div class="review-item-header">
+<div>
+<h4>${review.name}</h4>
+<div class="review-stars">${stars}</div>
+<small class="review-date">${review.date}</small>
+</div>
+<div class="review-item-actions">
+<button onclick="approveReview(${review.id})"><i class="fas fa-check"></i></button>
+<button onclick="deleteReview(${review.id})"><i class="fas fa-trash"></i></button>
+</div>
+</div>
+<p>${review.text}</p>
+`;
+reviewList.appendChild(item);
+});
+}
+function approveReview(id) {
+alert(`Review ID: ${id} approved (would connect to server in real implementation)`);
+}
+function deleteReview(id) {
+if (confirm('Are you sure you want to delete this review?')) {
+alert(`Review ID: ${id} deleted (would connect to server in real implementation)`);
+loadReviews(); // Refresh
+}
+}
+function changePassword() {
+const current = document.getElementById('currentPassword').value;
+const newPass = document.getElementById('newPassword').value;
+const confirmPass = document.getElementById('confirmPassword').value;
+if (newPass !== confirmPass) {
+alert('New passwords do not match!');
+return;
+}
+// In real implementation would validate and send to server
+alert('Password changed successfully! (would connect to server in real implementation)');
+// Clear fields
+document.getElementById('currentPassword').value = '';
+document.getElementById('newPassword').value = '';
+document.getElementById('confirmPassword').value = '';
+}
+function adminLogin() {
+const username = document.getElementById('adminUsername').value;
+const password = document.getElementById('adminPassword').value;
+if (username === 'admin' && password === 'mk2023') {
+// Hide login, show dashboard
+document.getElementById('adminLogin').style.display = 'none';
+document.getElementById('adminDashboard').style.display = 'block';
+// Load admin data
+loadGallery();
+loadReviews();
+} else {
+alert('Invalid credentials. Use username: admin, password: mk2023');
+}
+}
+function adminLogout() {
+document.getElementById('adminLogin').style.display = 'block';
+document.getElementById('adminDashboard').style.display = 'none';
+document.getElementById('adminPanel').style.display = 'none';
+// Clear fields
+document.getElementById('adminUsername').value = '';
+document.getElementById('adminPassword').value = '';
+}
+
+// Smooth Scrolling
+function scrollToSection(id) {
+document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+// Close modals when clicking outside
+window.addEventListener('click', function(event) {
+if (event.target.className === 'service-modal') {
+event.target.style.display = 'none';
+document.body.style.overflow = 'auto';
+}
+if (event.target.className === 'admin-panel') {
+event.target.style.display = 'none';
+}
+});
+// Form submission
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+e.preventDefault();
+if (selectedRating === 0) {
+alert('Please select a rating');
+return;
+}
+const name = document.getElementById('reviewName').value;
+const text = document.getElementById('reviewText').value;
+// In real implementation would send to server
+alert(`Thank you for your review, ${name}! In a full implementation, this would be saved to our database.`);
+// Reset form
+this.reset();
+stars.forEach(star => star.classList.remove('active'));
+selectedRating = 0;
+});
+// Drag and drop for upload
+const uploadArea = document.getElementById('uploadArea');
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+uploadArea.addEventListener(eventName, preventDefaults, false);
+});
+function preventDefaults(e) {
+e.preventDefault();
+e.stopPropagation();
+}
+['dragenter', 'dragover'].forEach(eventName => {
+uploadArea.addEventListener(eventName, highlight, false);
+});
+['dragleave', 'drop'].forEach(eventName => {
+uploadArea.addEventListener(eventName, unhighlight, false);
+});
+function highlight() {
+uploadArea.style.borderColor = 'var(--gold)';
+uploadArea.style.backgroundColor = 'rgba(224, 169, 78, 0.1)';
+}
+function unhighlight() {
+uploadArea.style.borderColor = 'rgba(224, 169, 78, 0.5)';
+uploadArea.style.backgroundColor = 'transparent';
+}
+uploadArea.addEventListener('drop', handleDrop, false);
+function handleDrop(e) {
+const dt = e.dataTransfer;
+const files = dt.files;
+document.getElementById('fileInput').files = files;
+handleFileUpload();
+}
+});
+</script>
+</body>
+</html>
+<!-- In your HTML file -->
+<div id="reviews-container"></div>
+
+<script>
+fetch('http://localhost:5000/api/reviews')
+.then(res => res.json())
+.then(data => {
+const container = document.getElementById('reviews-container');
+data.forEach(review => {
+container.innerHTML += `
+<div class="review-card">
+<h3>${review.name}</h3>
+<p>${review.content}</p>
+</div>
+`;
+});
+});
+</script>
